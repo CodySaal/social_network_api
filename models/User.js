@@ -1,10 +1,5 @@
 const mongoose = require("mongoose");
 
-var validateEmail = function(email) {
-    var regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-    return regex.test(email)
-};
-
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -16,8 +11,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        validate: [validateEmail, "Not a valid email."],
-        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
+        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Invalid email."],
     },
     thoughts: [
         {
@@ -32,14 +26,14 @@ const UserSchema = new mongoose.Schema({
         }
     ],
 }, {
-    virtuals: {
-        friendCount: {
-            get() {
-                return this.friends.length
-            }
-        }
+    toJSON: {
+        virtuals: true,
     }
 });
+
+UserSchema.virtual("friendCount").get(function() {
+    return this.friends.length
+})
 
 const User = mongoose.model("User", UserSchema);
 
