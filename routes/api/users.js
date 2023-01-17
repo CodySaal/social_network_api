@@ -11,4 +11,8 @@ router.put("/update/:id", usersController.updateUser);
 
 router.delete("/delete/:id", usersController.deleteUser);
 
+router.create("/:userId/friends/:friendId", usersController.addFriend);
+
+router.delete("/:userId/friends/:friendId", usersController.deleteFriend);
+
 module.exports = router
