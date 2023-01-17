@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const formatDate = require("../utils/format");
+const { formatDate } = require("../utils/format");
 
 const reactionSchema = new mongoose.Schema({
-   reactionID: {
+   reactionId: {
     type: mongoose.Schema.Types.ObjectId,
     default: () => new mongoose.Types.ObjectId()
    },
