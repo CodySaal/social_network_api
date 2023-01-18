@@ -36,7 +36,7 @@ module.exports = {
     deleteUser: async function (req, res) {
         try {
             const user = await User.findById(req.params.id)
-            Thought.deleteMany({_id: { $in: user.thoughts}})
+            await Thought.deleteMany({_id: { $in: user.thoughts}})
             const deletedUser = await User.findByIdAndDelete(req.params.id)
             res.json(deletedUser)
         } catch(err) {
