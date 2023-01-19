@@ -34,7 +34,7 @@ npm run dev
 ```
 Since there is no front end the user will have to use Insomnia or Postman in order to send request to the backend.
 
-[Walkthrough Video](https://drive.google.com/file/d/1GI6W5GX5mfl6AWUpPZKjxZICUdbM027-/view?usp=sharing 'Social Network API Walkthrough Video')
+[Walkthrough Video](https://drive.google.com/file/d/1GI6W5GX5mfl6AWUpPZKjxZICUdbM027-/view?usp=sharing 'Social Network API Walkthrough Video') (May have to download)
 
 ## Credits
 
