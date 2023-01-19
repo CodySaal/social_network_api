@@ -1,6 +1,7 @@
 const { User, Thought } = require("../models")
 
 module.exports = {
+    // Find all users
     findUsers: async function (req, res) {
         try {
             const users = await User.find()
@@ -9,6 +10,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Find specific user
     findUser: async function (req, res) {
         try {
             const user = await User.findById(req.params.id)
@@ -17,6 +19,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Create new user
     addUser: async function (req, res) {
         try {
             const newUser = await User.create(req.body)
@@ -25,6 +28,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Update existing user
     updateUser: async function (req, res) {
         try {
             const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true} )
@@ -33,6 +37,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Delete existing user and all associated thoughts
     deleteUser: async function (req, res) {
         try {
             const user = await User.findById(req.params.id)
@@ -43,6 +48,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Add a friend to a user
     addFriend: async function (req, res) {
         try {
             const addedFriend = await User.findByIdAndUpdate({
@@ -57,6 +63,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Delete an existing friend
     deleteFriend: async function (req, res) {
         try {
             const deletedFriend = await User.findByIdAndUpdate({

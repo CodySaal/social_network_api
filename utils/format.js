@@ -1,3 +1,4 @@
+// Example output: Jun 9th, 2020 at 04:31 pm
 const formatDate = (date) => {
     let formattedDate = new Intl.DateTimeFormat("en-US", {
         month: "short",
